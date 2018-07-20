@@ -26,8 +26,8 @@ public class Lieu {
 		// TODO Auto-generated constructor stub
 	}
 	private String description;
-	private float longt;
-	private float lat;
+	private double longt;
+	private double lat;
 	private String open_at;
 	private String close_at;
 	private String photo;
@@ -133,6 +133,15 @@ public class Lieu {
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
+	public void setLongt(double longt) {
+		this.longt = longt;
+	}
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+	
+	
+	
 	
 	
 	
