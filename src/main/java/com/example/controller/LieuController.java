@@ -45,13 +45,14 @@ public class LieuController  {
 		return LieuService.findAll();
 	}
 	
+	
 	@GetMapping("/lieu/{id}")
     public Lieu getlieu(@PathVariable("id") int id) {
 		
 		return LieuService.getOne(id);
 	}
 	@PostMapping("/addLieu")
-	public  Lieu create(String name,String adress,String description,double longt,double lat,String open_at,String close_at, String photo,
+	public  Lieu create(String name,String adress,String description,float longt,float lat,String open_at,String close_at, String photo,
 			int cat,int reg) {
 		
 		Categorie categorie=categorieService.getOne(cat);
@@ -101,7 +102,7 @@ public class LieuController  {
 	
 	
 	@PostMapping("/updatelieu")
-	public Lieu update(int id ,String name,String adress,String description,double longt,double lat,String open_at,String close_at, String photo
+	public Lieu update(int id ,String name,String adress,String description,float longt,float lat,String open_at,String close_at, String photo
 			,int cat){
 		
 		Categorie categorie=categorieService.getOne(cat);
@@ -167,5 +168,20 @@ public class LieuController  {
 		return reviewService.findByUser(user);
 	}
 	
+	@GetMapping("/deletcontact/{id}")
+	public MyResponse delete2(@PathVariable("id")int id) {
+		
+		MyResponse res=new MyResponse();
+		res.setSuccess(false);
+		res.setMessage("contact not deleted!!");
+		
+		if(contactService.existsById(id)) {
+		
+			contactService.deleteById(id);
+			res.setSuccess(true);
+			res.setMessage("contact deleted successfully!!");
+		}
+			return res;
+		}
 	
 	}

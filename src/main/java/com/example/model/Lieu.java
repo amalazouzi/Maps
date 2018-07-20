@@ -26,8 +26,8 @@ public class Lieu {
 		// TODO Auto-generated constructor stub
 	}
 	private String description;
-	private double longt;
-	private double lat;
+	private float longt;
+	private float lat;
 	private String open_at;
 	private String close_at;
 	private String photo;
@@ -82,13 +82,13 @@ public class Lieu {
 	public double getLongt() {
 		return longt;
 	}
-	public void setLongt(double longt) {
+	public void setLongt(float longt) {
 		this.longt = longt;
 	}
 	public double getLat() {
 		return lat;
 	}
-	public void setLat(double lat) {
+	public void setLat(float lat) {
 		this.lat = lat;
 	}
 	public String getOpen_at() {
