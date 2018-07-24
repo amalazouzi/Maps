@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Region;
 import  com.example.service.RegionService;
-
+import com.example.model.Lieu;
+import com.example.service.LieuService;
 @RestController
 public class RegionController {
 
@@ -29,7 +30,7 @@ public class RegionController {
 		return RegionService.findAll();
 	}
 	
-
+	
 	
 	@PostMapping("/addregion")
 	public  Region create(String name,String desp,int nbrlieu,String photos) {

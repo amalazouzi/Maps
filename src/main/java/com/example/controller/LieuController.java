@@ -51,6 +51,16 @@ public class LieuController  {
 		
 		return LieuService.getOne(id);
 	}
+	@GetMapping("/lieuregion/{cat}/{reg}")
+	public  List<Lieu> affiche (@PathVariable("cat")int cat, @PathVariable("reg")int reg)
+			{
+		      
+		       Categorie categorie=categorieService.getOne(cat);
+		       Region region=regionService.getOne(reg);      
+		       
+	        	return LieuService.findByCatAndRegion(categorie,region);
+			}
+	
 	@PostMapping("/addLieu")
 	public  Lieu create(String name,String adress,String description,float longt,float lat,String open_at,String close_at, String photo,
 			int cat,int reg) {
@@ -102,7 +112,7 @@ public class LieuController  {
 	
 	
 	@PostMapping("/updatelieu")
-	public Lieu update(int id ,String name,String adress,String description,float longt,float lat,String open_at,String close_at, String photo
+	public Lieu update(int id ,String name, String adress,String description,float longt,float lat,String open_at,String close_at, String photo
 			,int cat){
 		
 		Categorie categorie=categorieService.getOne(cat);
@@ -112,7 +122,7 @@ public class LieuController  {
 		l.setName(name);
 		l.setAdress(adress);
 		l.setLongt(longt);
-		l.setLat(lat);
+		l.setLat(lat);		
 		l.setCat(categorie);
         l.setPhoto(photo);
 		if(categorie.isWork_time())
